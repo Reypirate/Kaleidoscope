@@ -1,14 +1,17 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
   "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
     "paths": {
-      "#shared": ["./shared/*"],
-      "#client": ["./src/*"],
-      "#server": ["./server/*"]
+      "@repo/db": ["./packages/db/index.ts"],
+      "@repo/shared": ["./packages/shared/index.ts"],
+      "@repo/api": ["./apps/api/index.ts"]
     }
-  }
+  },
+  "exclude": ["node_modules", "dist"]
 }

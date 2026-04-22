@@ -4,35 +4,23 @@
   "version": "0.1.0",
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./apps/web/src/index.ts"
   },
-  "packageManager": "bun@1.2.15",
+  "packageManager": "pnpm@9.0.0",
   "engines": {
     "node": ">=22.14.0",
-    "bun": ">=1.2.15"
-  },
-  "imports": {
-    "#server/*": "./server/*",
-    "#client/*": "./src/*"
+    "pnpm": ">=9.0.0"
   },
   "scripts": {
-    "start": "NODE_ENV=production bun with-env bun dist/index.js",
-    "build": "bun with-env vite build && bun build --minify --sourcemap --target=bun --outdir=dist server/index.ts",
-    "build:docker": "docker build -t react-hono-template .",
-    "preview": "bun with-env vite preview",
+    "dev": "bunx turbo dev",
+    "build": "bunx turbo build",
+    "lint": "bunx turbo lint",
+    "typecheck": "bunx turbo typecheck",
+    "test": "bunx turbo test",
+    "format": "prettier --write . --ignore-path .gitignore",
     "clean": "git clean -xdf .cache .turbo dist node_modules .tanstack",
-    "dev:server": "bun with-env tsx watch server/index.ts",
-    "dev:vite": "wait-on http://localhost:4001/health && bun with-env vite",
-    "dev": "concurrently \"bun dev:server\" \"bun dev:vite\"",
-    "format": "prettier --check . --ignore-path .gitignore",
-    "lint": "eslint",
-    "typecheck": "tsc --noEmit --emitDeclarationOnly false",
-    "with-env": "dotenv -e .env --",
-    "test": "vitest run",
-    "auth:generate": "bun dlx @better-auth/cli generate --output server/drizzle/schema/auth.ts --config server/lib/auth.ts",
-    "db:push": "bun with-env drizzle-kit push",
-    "db:studio": "bun with-env drizzle-kit studio",
-    "ui:add": "bunx --bun shadcn add"
+    "db:push": "bunx --filter=@repo/db drizzle-kit push",
+    "db:studio": "bunx --filter=@repo/db drizzle-kit studio"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
@@ -119,7 +107,7 @@
     "@vitejs/plugin-react": "^4.3.4",
     "@vitest/coverage-istanbul": "3.2.4",
     "concurrently": "^9.2.0",
-    "dotenv-cli": "^8.0.0",
+    "dotenv-cli": "^11.0.0",
     "esbuild": "^0.25.9",
     "eslint": "^9.28.0",
     "eslint-plugin-import": "^2.32.0",
@@ -129,10 +117,16 @@
     "jsdom": "^26.1.0",
     "prettier": "^3.5.3",
     "tailwindcss": "^4.1.12",
+    "turbo": "^2.9.6",
     "tw-animate-css": "^1.3.8",
     "typescript": "^5.8.3",
     "vite": "6.1.0",
     "wait-on": "^8.0.4"
+  },
+  "pnpm": {
+    "overrides": {
+      "esbuild": "0.25.0"
+    }
   },
   "prettier": "./prettier.config.js"
 }
