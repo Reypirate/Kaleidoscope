@@ -1,4 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/")({
   component: Index,
 });
@@ -25,7 +25,10 @@ function Index() {
           { title: "Hono", desc: "Small, simple, and fast RPC backend" },
           { title: "Drizzle", desc: "TypeScript-first ORM with migrations" },
         ].map((feat) => (
-          <div key={feat.title} className="rounded-xl border bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+          <div
+            key={feat.title}
+            className="rounded-xl border bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+          >
             <h3 className="mb-2 font-bold text-slate-900">{feat.title}</h3>
             <p className="text-sm text-slate-500 leading-relaxed">{feat.desc}</p>
           </div>
@@ -38,18 +41,35 @@ function Index() {
           <div className="rounded-2xl border bg-white p-8">
             <h3 className="text-lg font-bold mb-4">Project Structure</h3>
             <ul className="space-y-3 text-slate-600">
-              <li><code className="bg-slate-100 px-1 rounded">apps/web</code> - React 19 Frontend</li>
-              <li><code className="bg-slate-100 px-1 rounded">apps/api</code> - Hono Backend</li>
-              <li><code className="bg-slate-100 px-1 rounded">packages/db</code> - Drizzle Schema & Client</li>
-              <li><code className="bg-slate-100 px-1 rounded">packages/shared</code> - Shared Zod Schemas</li>
+              <li>
+                <code className="bg-slate-100 px-1 rounded">apps/web</code> - React 19 Frontend
+              </li>
+              <li>
+                <code className="bg-slate-100 px-1 rounded">apps/api</code> - Hono Backend
+              </li>
+              <li>
+                <code className="bg-slate-100 px-1 rounded">packages/db</code> - Drizzle Schema &
+                Client
+              </li>
+              <li>
+                <code className="bg-slate-100 px-1 rounded">packages/shared</code> - Shared Zod
+                Schemas
+              </li>
             </ul>
           </div>
           <div className="rounded-2xl border bg-white p-8">
             <h3 className="text-lg font-bold mb-4">Commands</h3>
             <ul className="space-y-3 text-slate-600">
-              <li><code className="bg-slate-100 px-1 rounded">bun dev</code> - Start all services</li>
-              <li><code className="bg-slate-100 px-1 rounded">bun db:push</code> - Update database schema</li>
-              <li><code className="bg-slate-100 px-1 rounded">pnpm build</code> - Build for production</li>
+              <li>
+                <code className="bg-slate-100 px-1 rounded">bun dev</code> - Start all services
+              </li>
+              <li>
+                <code className="bg-slate-100 px-1 rounded">bun db:push</code> - Update database
+                schema
+              </li>
+              <li>
+                <code className="bg-slate-100 px-1 rounded">pnpm build</code> - Build for production
+              </li>
             </ul>
           </div>
         </div>

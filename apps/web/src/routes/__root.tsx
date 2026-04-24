@@ -11,7 +11,10 @@ export const Route = createRootRoute({
               Template
             </Link>
             <div className="flex gap-6">
-              <Link to="/" className="text-sm font-medium hover:text-primary transition-colors [&.active]:text-primary">
+              <Link
+                to="/"
+                className="text-sm font-medium hover:text-primary transition-colors [&.active]:text-primary"
+              >
                 Home
               </Link>
             </div>

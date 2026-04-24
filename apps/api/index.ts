@@ -21,7 +21,7 @@ app.onError((err, c) => {
       success: false,
       message: err.message || "Internal Server Error",
     },
-    500
+    500,
   );
 });
 
@@ -33,13 +33,11 @@ app.on(["POST", "GET"], "/api/auth/*", (c) => {
 // Runtime.js endpoint
 app.get("/api/runtime.js", (c) => {
   const clientEnv = Object.fromEntries(
-    Object.entries(process.env).filter(([key]) => key.startsWith("VITE_"))
+    Object.entries(process.env).filter(([key]) => key.startsWith("VITE_")),
   );
-  return c.text(
-    `window.__env = ${JSON.stringify(clientEnv, null, 2)}`,
-    200,
-    { "Content-Type": "application/javascript" }
-  );
+  return c.text(`window.__env = ${JSON.stringify(clientEnv, null, 2)}`, 200, {
+    "Content-Type": "application/javascript",
+  });
 });
 
 // Health check
