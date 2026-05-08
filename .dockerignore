@@ -6,3 +6,4 @@ dist
 .tanstack
 coverage
 data
+*.sarif

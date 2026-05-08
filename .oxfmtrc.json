@@ -1,6 +1,7 @@
 {
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
   "ignorePatterns": [
+    "*.sarif",
     "apps/web/src/routeTree.gen.ts",
     "coverage",
     "data",

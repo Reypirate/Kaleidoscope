@@ -3,7 +3,7 @@ FROM oven/bun:1.3.13-alpine AS base
 WORKDIR /app
 
 RUN apk add --no-cache nodejs npm
-RUN npm install -g pnpm@9.15.4
+RUN npm install -g pnpm@10.33.3
 
 FROM base AS deps
 
