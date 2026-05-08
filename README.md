@@ -24,8 +24,8 @@ workspace orchestration.
 
 Prerequisites:
 
-- Node.js 22.14+
-- pnpm 9.15+
+- Node.js 22.18+
+- pnpm 10.33+
 - Bun 1.3+
 
 ```bash
